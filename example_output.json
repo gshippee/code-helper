@@ -1,0 +1,27 @@
+{
+    'arrowFunc': {
+        'calls': ['console.log'],
+        'called_by': ['externalFunction', 'shorthandMethod'],
+        'source': 'const arrowFunc = () => {\n    console.log("Arrow Function Called");\n};'
+    },
+    'MyClass.constructor': {
+        'calls': ['this.myMethod'],
+        'called_by': [],
+        'source': 'constructor() {\n        this.myMethod();\n    }'
+    },
+    'myMethod': {
+        'calls': ['externalFunction'],
+        'called_by': ['MyClass.constructor'],
+        'source': 'myMethod() {\n        externalFunction();\n    }'
+    },
+    'externalFunction': {
+        'calls': ['arrowFunc'],
+        'called_by': ['myMethod'],
+        'source': 'function externalFunction() {\n    arrowFunc();\n}'
+    },
+    'shorthandMethod': {
+        'calls': ['arrowFunc'],
+        'called_by': [],
+        'source': 'shorthandMethod() {\n        arrowFunc();\n    }'
+    }
+}
